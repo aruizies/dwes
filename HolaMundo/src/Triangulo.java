@@ -12,6 +12,9 @@ public class Triangulo {
 	 * 
 	 * @param base La base del triángulo
 	 * @param altura La altura del triángulo
+	 * 
+	 * xcxcxcx
+	 * 
 	 */
 	public Triangulo(double base, double altura)
 	{
