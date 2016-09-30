@@ -10,9 +10,6 @@ public class Objetos {
 	double lado2_2 = 34;
 	double area1_2 = lado1_2 * lado2_2 / 2.0;
 	
-	Triangulo t1 = new Triangulo();
-	t1.setLado1(34);
-	t1.setLado1(34);
 	
 
 }
