@@ -256,12 +256,6 @@ else {
 
 
 ?>
-</body>
-</html>
-
-
-<html>
-<body>
 
 <form action="bienvenida.php" method="post">
 Nombre: <input type="text" name="nombre">
@@ -288,4 +282,6 @@ echo $_SERVER['SCRIPT_NAME'];
 
 
 
-
+<?php include 'pie.php';?>
+</body>
+</html>
