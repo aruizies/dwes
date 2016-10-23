@@ -114,11 +114,18 @@ foreach($capitales as $capital) {
 	echo "<li>$capital</li>";
 }
 echo "</ul>";
+
+
 echo "<ul>";
 foreach($capitales as $pais => $capital) {
+	// En $pais tengo la clave
+	// En $capital tengo el valor
 	echo "<li>La capital de $pais es $capital</li>";
 }
 echo "</ul>";
+
+
+
 
 
 
@@ -203,14 +210,13 @@ $a = 10;
 // Primera forma
 $capitales = array("España"=>"Madrid","Portugal"=>"Lisboa","Francia"=>"París");
 // Segunda forma
+
 $horas["DWES"]=9;
 $horas["DAW"]=4;
 $horas["EIE"]=3;
-# Impresión del contenido
-print_r($capitales);
-echo "<br/>";
-print_r($horas);
-
+foreach($horas as $clave => $valor) {
+	echo "<li>Módulo: $clave. Horas: $valor</li>";
+}
 
 
 for ($i=0; $i<sizeof($ciclos); $i++)
@@ -219,19 +225,20 @@ for ($i=0; $i<sizeof($ciclos); $i++)
 }
 
 
-/*
+
 echo "<ul>";
 foreach ($ciclos as $actual) {
 	echo "<li>$actual</li>";
 }
 echo "</ul>";
 
+
 for ($x = 0; $x <= 5; $x++) {
 	echo "<p>Contando hasta 5: vamos por $x</p>";
 }
 
 
-*/
+
 
 /*
 
