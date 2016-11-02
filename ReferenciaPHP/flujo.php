@@ -6,6 +6,18 @@
 <body>
 <?php
 
+$cadena = "perro";
+$tamaño = strlen($cadena);
+for ($i=0;$i<$tamaño;$i++)
+{
+	for ($j=0;$j<$tamaño-$i;$j++)
+	{
+		echo $cadena[$j];
+	}
+	echo "<br/>";
+}
+
+
 echo "<h1>Pruebas flujo</h1>";
 
 $num1 = 2;

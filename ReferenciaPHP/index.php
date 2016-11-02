@@ -7,6 +7,19 @@
 <?php
 echo "<h1>Referencia PHP</h1>";
 
+$cadena='Esto es una prueba.';
+echo "<p>El texto '$cadena' contiene ".strlen($cadena)." caracteres</p>";
+
+
+echo "<h3>Primer carácter: ".$cadena[0]."</h3>"; 
+echo "<h3>Último carácter: ".$cadena[strlen($cadena)-1]."</h3>";
+
+
+
+
+echo $cadena;
+
+
 # Los comentarios de l�nea pueden empezar por // o por #
 $nombre = "Alberto"; // no hay que especificar tipo de datos
 echo "<h3>Mi nombre es $nombre</h3>"; 
@@ -75,11 +88,6 @@ $salario_juan=$salario_juan*(100+$incentivo_juan)/100;
 /*Ahora el salario de Juan es 2142*/
 //$salario_base y $salario_pepe son referencias a una misma posici�n de memoria
 echo "<p>Salario actual de Juan: $salario_juan</p>"; 
-
-
-$cadena='Esto es una prueba.';
-$primer=$cadena{0}; // E
-$ultimo=$cadena{strlen($cadena)-1}; // .
 
 
 $ciclos = array("SMR","ASIR","DAW");
