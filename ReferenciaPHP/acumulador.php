@@ -13,7 +13,7 @@ else
 	echo "<h3>De momento llevamos $temporal. Seguimos.</h3>";
 	?>
 	<html><head><meta charset="utf-8"><title>Acumulador</title></head><body>
-	<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"],ENT_QUOTES,"UTF-8");?>" method="post">
 		<label>Número:</label><input name="n" type="text"/>
 		<input type="hidden" name="temporal" 
 			value="<?php echo $temporal?>"/>
@@ -22,3 +22,4 @@ else
 <?php 
 }
 ?>
+
