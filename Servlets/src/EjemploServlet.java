@@ -11,8 +11,8 @@ public class EjemploServlet implements Servlet {
 	private static final long serialVersionUID = 1L;
 
 	public void init(ServletConfig cfg) throws ServletException {
-		config.getServletContext().log("Iniciando el servlet");
 		config = cfg;
+		config.getServletContext().log("Iniciando el servlet");
 	}
 
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
@@ -34,3 +34,4 @@ public class EjemploServlet implements Servlet {
 		return config;
 	}
 }
+

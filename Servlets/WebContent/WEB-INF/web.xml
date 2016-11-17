@@ -1,0 +1,33 @@
+<web-app>
+	<servlet>
+		<servlet-name>servletDeEjemplo</servlet-name>
+		<servlet-class>EjemploServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>servletGenericoDeEjemplo</servlet-name>
+		<servlet-class>EjemploServletGenerico</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>servletHttpDeEjemplo</servlet-name>
+		<servlet-class>EjemploServletHttp</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servletDeEjemplo</servlet-name>
+		<url-pattern>/pruebaServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>servletGenericoDeEjemplo</servlet-name>
+		<url-pattern>/pruebaServletGenerico</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>servletHttpDeEjemplo</servlet-name>
+		<url-pattern>/pruebaServletHttp</url-pattern>
+	</servlet-mapping>
+</web-app>
+
+
+
+
