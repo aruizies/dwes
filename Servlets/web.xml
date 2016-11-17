@@ -1,0 +1,15 @@
+<web-app>
+	<servlet>
+		<servlet-name>servletDeEjemplo</servlet-name>
+		<servlet-class>EjemploServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servletDeEjemplo</servlet-name>
+		<url-pattern>/pruebaServlet</url-pattern>
+	</servlet-mapping>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error404.html</location>
+	</error-page>
+</web-app>
