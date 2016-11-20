@@ -1,4 +1,13 @@
 <web-app>
+	<display-name>Aplicación Web de Prueba</display-name>
+	<context-param>
+        <param-name>creador</param-name>
+        <param-value>Alberto</param-value>
+    </context-param>
+	<context-param>
+        <param-name>motorBD</param-name>
+        <param-value>MariaDB</param-value>
+    </context-param>
 	<servlet>
 		<servlet-name>servletDeEjemplo</servlet-name>
 		<servlet-class>EjemploServlet</servlet-class>
@@ -14,6 +23,15 @@
 		<servlet-class>EjemploServletHttp</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<servlet>
+		<servlet-name>MuestraVariablesServidor</servlet-name>
+		<servlet-class>MuestraVariablesServidor</servlet-class>
+		<init-param>
+			<param-name>clase</param-name>
+			<param-value>2DAW</param-value>
+		</init-param>
+	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>servletDeEjemplo</servlet-name>
 		<url-pattern>/pruebaServlet</url-pattern>
@@ -26,6 +44,16 @@
 		<servlet-name>servletHttpDeEjemplo</servlet-name>
 		<url-pattern>/pruebaServletHttp</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MuestraVariablesServidor</servlet-name>
+		<url-pattern>/MuestraVariablesServidor</url-pattern>
+	</servlet-mapping>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error404.html</location>
+	</error-page>
+	
 </web-app>
 
 
