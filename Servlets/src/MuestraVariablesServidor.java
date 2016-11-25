@@ -13,8 +13,8 @@ public class MuestraVariablesServidor extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;UTF-8");
+        //response.setCharacterEncoding("UTF-8");
         response.addHeader("usuarioRemoto", "aruiz");
         PrintWriter out = response.getWriter();
         try {         

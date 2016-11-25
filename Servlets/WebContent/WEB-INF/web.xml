@@ -47,6 +47,7 @@
 	<servlet-mapping>
 		<servlet-name>MuestraVariablesServidor</servlet-name>
 		<url-pattern>/MuestraVariablesServidor</url-pattern>
+		<url-pattern>/MuestraVariables</url-pattern>
 	</servlet-mapping>
 	
 	<error-page>
