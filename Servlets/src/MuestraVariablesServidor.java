@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -53,6 +54,8 @@ public class MuestraVariablesServidor extends HttpServlet {
              out.println("</table></body></html>");
 
            /* 
+            * 
+            * APUNTES
             ServletContext contexto = getServletContext();
             Enumeration <String> parametros = contexto.getInitParameterNames();
             while (parametros.hasMoreElements()) {
@@ -60,8 +63,22 @@ public class MuestraVariablesServidor extends HttpServlet {
             out.print("<p>"+actual+": "+contexto.getInitParameter(actual));
             out.println("</p>");
             }*/
+/* 
+             Enumeration <String> parametrosServlet = this.getInitParameterNames();
+      o       while (parametrosServlet.hasMoreElements()) {
+ 	            String actual = parametrosServlet.nextElement();
+             out.print("<p>"+actual+": "+this.getInitParameter(actual));
+             out.println("</p>");
+  */      /*
+             ServletContext contexto = getServletContext();
+             out.println("<h3>Parámetro de inicio del contexto: "
+            		 + contexto.getInitParameter("log")+ "</h3>");
+             
+             out.println("<h3>Parámetro de inicio del servlet: " 
+            		 + this.getInitParameter("usuarioRemoto")+ "</h3>");
+        */
         } finally {            
             out.close();
-        }
+        } 
     }
 }

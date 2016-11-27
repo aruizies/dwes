@@ -1,13 +1,21 @@
 <web-app>
 	<display-name>Aplicación Web de Prueba</display-name>
 	<context-param>
-        <param-name>creador</param-name>
-        <param-value>Alberto</param-value>
+        <param-name>log</param-name>
+        <param-value>/log</param-value>
     </context-param>
 	<context-param>
-        <param-name>motorBD</param-name>
-        <param-value>MariaDB</param-value>
+        <param-name>debug</param-name>
+        <param-value>1</param-value>
     </context-param>
+	<servlet>
+		<servlet-name>MuestraVariablesServidor</servlet-name>
+		<servlet-class>MuestraVariablesServidor</servlet-class>
+		<init-param>
+			<param-name>usuarioRemoto</param-name>
+			<param-value>aruiz</param-value>
+		</init-param>
+	</servlet>
 	<servlet>
 		<servlet-name>servletDeEjemplo</servlet-name>
 		<servlet-class>EjemploServlet</servlet-class>
@@ -22,14 +30,6 @@
 		<servlet-name>servletHttpDeEjemplo</servlet-name>
 		<servlet-class>EjemploServletHttp</servlet-class>
 		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet>
-		<servlet-name>MuestraVariablesServidor</servlet-name>
-		<servlet-class>MuestraVariablesServidor</servlet-class>
-		<init-param>
-			<param-name>clase</param-name>
-			<param-value>2DAW</param-value>
-		</init-param>
 	</servlet>
 
 	<servlet-mapping>
