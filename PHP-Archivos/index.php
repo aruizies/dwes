@@ -6,11 +6,11 @@
 <?php
 //Leer rápidamente todos los caracteres del archivo
 
-//$rutaArchivo = "files/modulos.txt";
+$rutaArchivo = "files/modulos.txt";
 
-/*
+
 echo readfile($rutaArchivo);
-^*/
+
 
 
  // Leer las líneas del archivo a un array
@@ -82,12 +82,12 @@ fopen($rutaArchivo, "w") or die("Imposible abrir el archivo para escritura");
 
 //unlink($rutaArchivo);
 
-
+/*
 if (!unlink($rutaArchivo))
 	echo ("Imposible eliminar el archivo $rutaArchivo");
 else
 	echo ("Eliminado archivo $rutaArchivo");
-
+*/
 
 ?>
 
