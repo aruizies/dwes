@@ -48,7 +48,7 @@ public class LeerTrabajadores extends HttpServlet {
 		try {
 			builder = builderFactory.newDocumentBuilder();
 		} catch (Exception e) {
-			System.out.println("Error al crear el parser XML");
+			out.println("Error al crear el parser XML");
 		}
 
 		// Paso 2: procesar un archivo
@@ -57,7 +57,7 @@ public class LeerTrabajadores extends HttpServlet {
 		try {
 			document = builder.parse(new FileInputStream(ruta));
 		} catch (Exception e) {
-			System.out.println("Error al procesar el archivo XML");
+			out.println("Error al procesar el archivo XML");
 		}
 */
 
@@ -65,59 +65,60 @@ public class LeerTrabajadores extends HttpServlet {
 		Document document = UtilXML.abrirDocumentoXML(ruta);
 		// Paso 3: recorrer el árbol
 		Element raiz = document.getDocumentElement();
-		System.out.println("El elemento raíz es " + raiz.getTagName());
+		out.println("<h4>El elemento raíz es " + raiz.getTagName() + "</h4>");
 
 		NodeList nodos = raiz.getChildNodes();
 		for (int i = 0; i < nodos.getLength(); i++) {
 			Node n = nodos.item(i);
 			if (n instanceof Element) {
 				Element hijo = (Element) n;
-				System.out.println(hijo.getTagName() + " de tipo " + hijo.getAttribute("categoria"));
+				out.println("<h4>"+hijo.getTagName() + " de tipo " + hijo.getAttribute("categoria") + "</h4>");
 			}
 		}
 
 		// Salida más detallada:
-		System.out.println("-------------------");
-		System.out.println("|    PLANTILLA    |");
-		System.out.println("-------------------");
+		out.println("<h2>PLANTILLA</h2>");
 
 		// para cada elemento trabajador...
 		for (int i = 0; i < nodos.getLength(); i++) {
 			Node n = nodos.item(i);
 			if (n instanceof Element) {
 				Element trabajador = (Element) n;
+				out.println("<ul>");
 				// Nombre
 				Node nodoNombre = trabajador.getElementsByTagName("nombre").item(0);
 				if (nodoNombre instanceof Element) {
 					Element nombre = (Element) nodoNombre;
 					Node contenidoNombre = nombre.getFirstChild();
-					System.out.println("Nombre: " + contenidoNombre.getNodeValue());
+					out.println("<li>Nombre: " + contenidoNombre.getNodeValue() + "</li>");
 				}
 				// Categoria
-				System.out.println("Categoria: " + trabajador.getAttribute("categoria"));
+				out.println("<li>Categoria: " + trabajador.getAttribute("categoria") + "</li>");
 				// Direccion
 				Node nodoDir = trabajador.getElementsByTagName("direccion").item(0);
 				if (nodoDir instanceof Element) {
 					Element dir = (Element) nodoDir;
 					Node contenidoDir = dir.getFirstChild();
-					System.out.println("Dirección: " + contenidoDir.getNodeValue());
+					out.println("<li>Dirección: " + contenidoDir.getNodeValue() + "</li>");
 				}
 				// Teléfonos
-				System.out.println("Teléfonos");
+				out.println("<li>Teléfonos</li>");
 				Node nodoTel = trabajador.getElementsByTagName("telefonos").item(0);
 				if (nodoTel instanceof Element) {
 					Element tel = (Element) nodoTel;
 					NodeList numeros = tel.getChildNodes();
+					out.println("<ul>");
 					for (int j = 0; j < numeros.getLength(); j++) {
 						Node t = numeros.item(j);
 						if (t instanceof Element) {
 							Element numero = (Element) t;
 							Node contenidoNum = numero.getFirstChild();
-							System.out.println("Tel: " + contenidoNum.getNodeValue());
+							out.println("<li>Tel: " + contenidoNum.getNodeValue() + "</li>");
 						}
 					}
+					out.println("</ul>");
 				}
-				System.out.println("---------------------");
+				out.println("</ul><hr/>\n");
 
 			}
 		}
