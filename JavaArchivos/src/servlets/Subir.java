@@ -36,7 +36,8 @@ public class Subir extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ServletContext contexto = getServletContext();
-		PrintWriter out = response.getWriter();
+        response.setContentType("text/html;UTF-8");
+        PrintWriter out = response.getWriter();
 		out.println("<html><head><meta charset='UTF-8'/></head><body>");
 
 		String ruta = contexto.getRealPath("/upload");
