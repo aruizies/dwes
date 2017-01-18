@@ -4,8 +4,12 @@
 <body>
 
 <form action="subir.php" method="post" enctype="multipart/form-data">
+    <label>Tu nombre:</label>
+    <input type="text" name="nombre"><br/>
+    <label>Descripción del archivo:</label>
+    <input type="text" name="descripcion"><br/>
     <label>Escoger archivo:</label>
-    <input type="file" name="archivo">
+    <input type="file" name="archivo"><br/><br/>
     <input type="submit" value="Subir archivo" name="enviar">
 </form>
 
