@@ -78,7 +78,7 @@ public class Subir extends HttpServlet {
 				return token.substring(token.indexOf("=") + 2, token.length() - 1);
 			}
 		}
-		// si hemos llegado hasta aquÃ­, no se encontrÃ³ 'filename' en este elemento de la cabecera
+		// si hemos llegado hasta aquí, no se encontró 'filename' en este elemento de la cabecera
 		return "";
 	}
 
