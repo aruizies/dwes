@@ -41,30 +41,14 @@ public class LeerTrabajadores extends HttpServlet {
 		ServletContext contexto = getServletContext();
 		PrintWriter out = response.getWriter();
 
-/*		
-		// Paso 1: inicializar el parser
-		DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder builder = null;
-		try {
-			builder = builderFactory.newDocumentBuilder();
-		} catch (Exception e) {
-			out.println("Error al crear el parser XML");
-		}
-
-		// Paso 2: procesar un archivo
-		Document document = null;
 		String ruta = contexto.getRealPath("/files/trabajadores.xml");
-		try {
-			document = builder.parse(new FileInputStream(ruta));
-		} catch (Exception e) {
-			out.println("Error al procesar el archivo XML");
+		Document documentoXML = UtilXML.abrirDocumentoXML(ruta);
+		if (documentoXML == null) {
+			out.println("<h3>Error al procesar el archivo XML</h3>");
+			return;
 		}
-*/
-
-		String ruta = contexto.getRealPath("/files/trabajadores.xml");
-		Document document = UtilXML.abrirDocumentoXML(ruta);
-		// Paso 3: recorrer el árbol
-		Element raiz = document.getDocumentElement();
+		
+		Element raiz = documentoXML.getDocumentElement();
 		out.println("<h4>El elemento raíz es " + raiz.getTagName() + "</h4>");
 
 		NodeList nodos = raiz.getChildNodes();
@@ -77,7 +61,7 @@ public class LeerTrabajadores extends HttpServlet {
 		}
 
 		// Salida más detallada:
-		out.println("<h2>PLANTILLA</h2>");
+		out.println("<h2>Plantilla</h2>");
 
 		// para cada elemento trabajador...
 		for (int i = 0; i < nodos.getLength(); i++) {
@@ -122,8 +106,8 @@ public class LeerTrabajadores extends HttpServlet {
 
 			}
 		}
-
-	}
+		out.println("</body></html>");
+	} // doGet
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
