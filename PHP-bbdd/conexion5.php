@@ -1,29 +1,41 @@
+<html>
+<head>
+	<title>Conexión a BBDD con PHP</title>
+	<meta charset="UTF-8"/>
+</head>
+<body>
+<h2>Pruebas con la base de datos de animales</h2>
 <?php
-include "conexion-h.php";
-// Defino las variables necesarias para la conexi�n:
 $servidor = "localhost";
 $usuario = "alumno";
 $clave = "alumno";
 
-// Creamos la conexi�n
 $conexion = new mysqli($servidor,$usuario,$clave,"animales");
+$conexion->query("SET NAMES 'UTF8'");
 
-echo "<p>A continuaci�n modificamos la especie de un animal.</p>";
+if ($conexion->connect_errno) {
+	echo "<p>Error al establecer la conexión (" . $conexion->connect_errno . ") " . $conexion->connect_error . "</p>";
+}
 
-$conexion ->query("UPDATE animal SET especie='jabali' WHERE nombre='Babe'");
-echo "<h3 style='color:red'>". $conexion->error ."</h3>";
+echo "<h2>Listado de cuidadores</h2>";
+echo "<h3>Pulsa en cada cuidador para ver los animales de los que se ocupa</h3>";
 
-echo "<p>A continuaci�n intentamos una actualizaci�n incorrecta y mostramos el error:</p>";
+$resultado = $conexion-> query("SELECT * FROM cuidador");
+echo "<ul>\n";
+$fila=$resultado->fetch_array(MYSQLI_ASSOC);
+while($fila!=null) {
+	echo "<li><a href='cuidador.php?idCuidador=$fila[idCuidador]'>$fila[Nombre]</a></li>\n";
+	// Ejemplo: <li><a href='cuidador.php?idCuidador=12345'>Alberto</a></li>
+	$fila=$resultado->fetch_array(MYSQLI_ASSOC);
+}
+echo "</ul>";
 
-$conexion ->query ("DROP TABLE animal");
-echo "<h3 style='color:red'>". $conexion->error ."</h3>";
-
-
-echo "<h3>Desconectando...</h3>";
 mysqli_close($conexion);
 
 ?>
-
-<p><a href="./conexion6.php">Pulsa aqu� para ir a conexion6.php, donde veremos un ejemplo m�s elaborado</a></p>
 </body>
 </html>
+
+
+
+

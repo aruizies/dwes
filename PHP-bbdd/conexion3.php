@@ -1,36 +1,42 @@
+<html>
+<head>
+	<title>Conexión a BBDD con PHP</title>
+	<meta charset="UTF-8"/>
+</head>
+<body>
+<h2>Pruebas con la base de datos de animales</h2>
 <?php
-include "conexion-h.php";
-// Defino las variables necesarias para la conexi�n:
 $servidor = "localhost";
 $usuario = "alumno";
 $clave = "alumno";
 
-// Creamos la conexi�n
 $conexion = new mysqli($servidor,$usuario,$clave,"animales");
-
-//si quisi�ramos hacerlo en dos pasos: 
-// $conexion = new mysqli($servidor,$usuario,$clave);
-// $conexion->select_db("animales");
-
-if ($conexion->connect_errno) 
-{
-    echo "<p>Error al establecer la conexi�n (" . $conexion->connect_errno . ") " . $conexion->connect_error . "</p>";
+if ($conexion->connect_errno) {
+	echo "<p>Error al establecer la conexión (" . $conexion->connect_errno . ") " . $conexion->connect_error . "</p>";
 }
-echo "<p>A continuaci�n mostramos algunos registros:</p>";
+?>
+<table border="0">
+<tr bgcolor="lightblue">
+	<td><b>Nombre</b></td>
+	<td><b>Especie</b></td>
+</tr>
+<?php
 $resultado = $conexion -> query("SELECT * FROM animal ORDER BY nombre");
 $fila=$resultado->fetch_array(MYSQLI_ASSOC);
-while($fila!=null)
-{
-	echo "<hr>";
-	echo "Nombre:" . $fila['nombre'];
-	echo "<br>Especie: $fila[especie]"; // ��observa la diferencia en el uso de comillas!!
+while($fila!=null) {
+	echo "<tr bgcolor='lightgreen'>";
+	echo "<td>$fila[nombre]</td>"; 
+	echo "<td>$fila[especie]</td>\n";
+	echo "</tr>";
 	$fila=$resultado->fetch_array(MYSQLI_ASSOC);
 }
+?>
+</table>
+<?php 
 echo "<h3>Desconectando...</h3>";
 mysqli_close($conexion);
-
 ?>
-
-<p><a href="./conexion4.php">Pulsa aqu� para ir a conexion4.php, donde haremos lo mismo presentando los resultados en una tabla</a></p>
 </body>
 </html>
+
+
