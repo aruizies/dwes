@@ -15,7 +15,7 @@ if ($conexion->connect_errno) {
 	echo "<p>Error al establecer la conexión (" . $conexion->connect_errno . ") " . $conexion->connect_error . "</p>";
 }
 ?>
-<table border="0">
+<table border='0'>
 <tr bgcolor="lightblue">
 	<th>Chip</th>
 	<th>Nombre</th>

@@ -14,7 +14,7 @@ $conexion = new mysqli($servidor,$usuario,$clave,"animales");
 if ($conexion->connect_errno) {
 	echo "<p>Error al establecer la conexión (" . $conexion->connect_errno . ") " . $conexion->connect_error . "</p>";
 }
-?>
+$conexion->query("SET NAMES 'UTF8'");?>
 <table border="0">
 <tr bgcolor="lightblue">
 	<th>Chip</th>
@@ -23,9 +23,17 @@ if ($conexion->connect_errno) {
 	<th>Imagen</th>
 </tr>
 <?php
-$resultado = $conexion -> query("SELECT nombre, chip, especie AS tipo, imagen FROM animal ORDER BY nombre");
+//$resultado = $conexion -> query("SELECT nombre, chip, especie AS tipo, imagen FROM animal ORDER BY nombre");
+// Este es el ejemplo en el que en la clase se cambia el nombre del atributo y con AS se asocia bien
+$resultado = $conexion -> query("SELECT nombre, chip, especie, imagen FROM animal ORDER BY nombre");
 while ($animal = $resultado->fetch_object('Animal')) {
-	echo $animal."<br/>";
+//	echo $animal."<br/>"; primer intento más sencillo, simplemente escribirlo
+	echo "<tr bgcolor='lightgreen'>";
+	echo "<td>".$animal->getChip()."</td>\n";
+	echo "<td>".$animal->getNombre()."</td>\n";
+	echo "<td>".$animal->getEspecie()."</td>\n";
+	echo "<td>".$animal->getImagen()."</td>\n";
+	echo "</tr>";
 }
 
 /*
