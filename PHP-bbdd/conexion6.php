@@ -1,4 +1,4 @@
-<html>
+<?php include 'Animal.php';?><html>
 <head>
 	<title>Conexión a BBDD con PHP</title>
 	<meta charset="UTF-8"/>
@@ -23,20 +23,27 @@ if ($conexion->connect_errno) {
 	<th>Imagen</th>
 </tr>
 <?php
-$resultado = $conexion -> query("SELECT * FROM animal ORDER BY nombre");
+$resultado = $conexion -> query("SELECT nombre, chip, especie AS tipo, imagen FROM animal ORDER BY nombre");
+while ($animal = $resultado->fetch_object('Animal')) {
+	echo $animal."<br/>";
+}
+
+/*
 $fila=$resultado->fetch_array(MYSQLI_ASSOC);
 while($fila!=null) {
 	echo "<tr bgcolor='lightgreen'>";
 	echo "<td>$fila[chip]</td>\n";
-	echo "<td>$fila[nombre]</td>"; 
+	echo "<td>$fila[nombre]</td>";
 	echo "<td>$fila[especie]</td>\n";
 	echo "<td>$fila[imagen]</td>\n";
 	echo "</tr>";
 	$fila=$resultado->fetch_array(MYSQLI_ASSOC);
 }
+*/
 ?>
 </table>
 <?php 
+
 echo "<h3>Desconectando...</h3>";
 mysqli_close($conexion);
 ?>
