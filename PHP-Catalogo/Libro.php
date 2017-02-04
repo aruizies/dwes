@@ -2,12 +2,12 @@
 class Libro {
 
 	function __toString() {
-		return "Libro: id".$this->id.", título ".$this->titulo.", autor ".$this->autor.", año ".$this->año.", editorial".$this->editorial.", imagen ".$this->imagen;
+		return "Libro: id".$this->id.", título ".$this->titulo.", idAutor ".$this->idAutor.", año ".$this->año.", editorial".$this->editorial.", imagen ".$this->imagen;
 	}
 
 	private $id;
 	private $titulo;
-	private $autor;
+	private $idAutor;
 	private $año;
 	private $editorial;
 	private $imagen;
@@ -15,8 +15,8 @@ class Libro {
 	public function getId() {
 		return $this->id;
 	}
-	public function getAutor() {
-		return $this->autor;
+	public function getIdAutor() {
+		return $this->idAutor;
 	}
 	public function getTitulo() {
 		return $this->titulo;

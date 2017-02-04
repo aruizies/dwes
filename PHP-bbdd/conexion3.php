@@ -24,15 +24,14 @@ if ($conexion->connect_errno) {
 </tr>
 <?php
 $resultado = $conexion -> query("SELECT * FROM animal ORDER BY nombre");
-$fila=$resultado->fetch_array(MYSQLI_ASSOC);
-while($fila!=null) {
+
+while($fila=$resultado->fetch_array(MYSQLI_ASSOC)) {
 	echo "<tr bgcolor='lightgreen'>";
 	echo "<td>$fila[chip]</td>\n";
 	echo "<td>$fila[nombre]</td>"; 
 	echo "<td>$fila[especie]</td>\n";
 	echo "<td>$fila[imagen]</td>\n";
 	echo "</tr>";
-	$fila=$resultado->fetch_array(MYSQLI_ASSOC);
 }
 ?>
 </table>

@@ -36,12 +36,9 @@ echo "<h3>Animales cuidados por ".$cuidador['Nombre'].":</h3>";
 
 // obtener los animales que cuida el cuidador
 $resultado = $conexion -> query("SELECT animal.* FROM animal, cuida WHERE (animal.chip = cuida.chipAnimal) AND (cuida.idCuidador = '$id');");
-$fila=$resultado->fetch_array(MYSQLI_ASSOC);
 echo "<ul>";
-while($fila!=null)
-{
+while($fila=$resultado->fetch_array(MYSQLI_ASSOC)) {
 	echo "<li>".$fila['nombre'].", de la especie ".$fila['especie']."</li>";
-	$fila=$resultado->fetch_array(MYSQLI_ASSOC);
 }
 echo "</ul>";
 mysqli_close($conexion);

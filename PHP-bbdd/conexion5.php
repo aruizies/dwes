@@ -22,11 +22,9 @@ echo "<h3>Pulsa en cada cuidador para ver los animales de los que se ocupa</h3>"
 
 $resultado = $conexion-> query("SELECT * FROM cuidador");
 echo "<ul>\n";
-$fila=$resultado->fetch_array(MYSQLI_ASSOC);
-while($fila!=null) {
-	echo "<li><a href='cuidador.php?idCuidador=$fila[idCuidador]'>$fila[Nombre]</a></li>\n";
+while($fila=$resultado->fetch_array(MYSQLI_ASSOC)) {
+echo "<li><a href='cuidador.php?idCuidador=$fila[idCuidador]'>$fila[Nombre]</a></li>\n";
 	// Ejemplo: <li><a href='cuidador.php?idCuidador=12345'>Alberto</a></li>
-	$fila=$resultado->fetch_array(MYSQLI_ASSOC);
 }
 echo "</ul>";
 
