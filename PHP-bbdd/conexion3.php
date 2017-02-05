@@ -24,7 +24,7 @@ if ($conexion->connect_errno) {
 </tr>
 <?php
 $resultado = $conexion -> query("SELECT * FROM animal ORDER BY nombre");
-
+if($resultado->num_rows === 0) echo "<p>No hay animales en la base de datos</p>";
 while($fila=$resultado->fetch_array(MYSQLI_ASSOC)) {
 	echo "<tr bgcolor='lightgreen'>";
 	echo "<td>$fila[chip]</td>\n";

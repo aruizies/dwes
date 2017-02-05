@@ -6,7 +6,7 @@
 <body>
 <h2>Pruebas con la base de datos de animales</h2>
 <?php
-$servidor = "localhost";
+$servidor = "localhost:3306";
 $usuario = "alumno";
 $clave = "alumno";
 
@@ -22,7 +22,8 @@ if ($conexion->connect_errno) {
 }
 echo "<p>A continuación mostramos algunos registros:</p>";
 $resultado = $conexion -> query("SELECT * FROM animal ORDER BY nombre");
-$fila=$resultado->fetch_array(MYSQLI_ASSOC);
+if($resultado->num_rows === 0) echo "<p>No hay animales en la base de datos</p>";
+$fila=$resultado->fetch_assoc();
 while($fila!=null) {
 	echo "<hr>";
 	echo "Nombre:" . $fila['nombre'];
@@ -34,7 +35,7 @@ while($fila!=null) {
 
 
 $resultado = $conexion -> query("SELECT * FROM cuidador ORDER BY nombre");
-$fila=$resultado->fetch_array(MYSQLI_ASSOC);
+$fila=$resultado->fetch_assoc();
 while($fila!=null) {
 	echo "<hr>";
 	echo "Nombre:" . $fila['Nombre'];
