@@ -102,6 +102,8 @@ public class MostrarCuidador extends HttpServlet {
 				}
 
 				// Paso 6: Desconexión
+				if (rset != null)
+					rset.close();
 				if (sentencia != null)
 					sentencia.close();
 				if (conn != null)
