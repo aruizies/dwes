@@ -6,6 +6,7 @@ public class Sensor {
 	private String descripcion;
 	private double precioFabrica;
 	
+	
 	public Sensor(String nombreFabricante, int codigoFabricante, int codigoSensor, String descripcion, double precioFabrica) {
 		this.nombreFabricante = nombreFabricante;
 		this.codigoFabricante = codigoFabricante;
@@ -13,8 +14,6 @@ public class Sensor {
 		this.descripcion = descripcion;
 		this.precioFabrica = precioFabrica;
 	}
-	
-	
 	
 	public void printInfo() {
 		System.out.println("Sensor [nombreFabricante=" + nombreFabricante + ", codigoFabricante=" + codigoFabricante
