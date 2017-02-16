@@ -1,10 +1,11 @@
+package sensores;
 public class Sensor {
 
-	private String nombreFabricante;
-	private int codigoFabricante;
-	private int codigoSensor;
-	private String descripcion;
-	private double precioFabrica;
+	protected String nombreFabricante;
+	protected int codigoFabricante;
+	protected int codigoSensor;
+	protected String descripcion;
+	protected double precioFabrica;
 	
 	
 	public Sensor(String nombreFabricante, int codigoFabricante, int codigoSensor, String descripcion, double precioFabrica) {

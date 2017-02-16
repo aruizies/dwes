@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import sensores.Sensor;
+
 public class Robot {
 	private int id;
 	private ArrayList<Sensor> listaSensores;
@@ -9,7 +11,7 @@ public class Robot {
 		this.listaSensores = new ArrayList<Sensor>();
 	}
 	
-	
+/*// COMPROBANDO SI EXISTE UNO CON EL MISMO SENSOR	
 	public boolean añadirSensor(Sensor nuevoSensor) {
 		// Primero comprobamos si ya existe
 		for (int i = 0; i < listaSensores.size(); i++) {
@@ -24,7 +26,14 @@ public class Robot {
 		listaSensores.add(nuevoSensor);
 		return true;
 	}
+*/
 
+	public boolean añadirSensor(Sensor nuevoSensor) {
+		listaSensores.add(nuevoSensor);
+		return true;
+	}
+
+	
 	public boolean eliminarSensorlistaSensores(int codigoSensor) {
 		// primero la buscamos
 		for (int i = 0; i < listaSensores.size(); i++) {
