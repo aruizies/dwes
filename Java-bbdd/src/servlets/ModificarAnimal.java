@@ -51,6 +51,8 @@ public class ModificarAnimal extends HttpServlet {
 			// Paso 2: Conectarse a la Base de Datos utilizando la clase Connection
 			String userName = "alumno";
 			String password = "alumno";
+//			String userName = "alumno_rw";
+//			String password = "dwes";
 			String url = "jdbc:mariadb://localhost:3306/animales";
 			conn = DriverManager.getConnection(url, userName, password);
 
@@ -60,10 +62,10 @@ public class ModificarAnimal extends HttpServlet {
 			// Paso 4: Ejecutar la sentencia SQL a través de los objetos Statement
 			String consultaUpdate = "UPDATE animal SET especie='jabali' WHERE nombre='Babe'";
 			try {
-				sentencia.executeUpdate(consultaUpdate);
-				out.println("<p>Contenido actualizado</p>");
+				int nFilas = sentencia.executeUpdate(consultaUpdate);
+			  out.println("<p>"+ nFilas + " filas afectadas</p>");
 			} catch(Exception e) {
-				out.println("<p>No se pudo actualizar la base de datos</p>");
+			  out.println("<p>No se pudo actualizar la base de datos</p>");
 			}
 		
 			// Paso 6: Desconexión
