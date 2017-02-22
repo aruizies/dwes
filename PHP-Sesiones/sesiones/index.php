@@ -1,7 +1,3 @@
-<?php 
-	setcookie("test", "test", time() + 3600, '/');
-	if(count($_COOKIE) ==0) $cookiesDeshabilitadas == true;
-?>	
 <html>
 <head>
 <title>Sesiones</title>

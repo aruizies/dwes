@@ -69,6 +69,8 @@ if(isset($_POST["enviar"])) {
 			$errorMessage = "username FAILED";
 		}
 	}
+	
+	/*
 }
 ?>
 
@@ -104,4 +106,4 @@ Password: <INPUT TYPE = 'TEXT' Name ='password'  value="<?PHP print $pword;?>" m
 
 
 </body>
-</html>
+</html>*/
