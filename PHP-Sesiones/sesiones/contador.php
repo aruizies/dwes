@@ -1,6 +1,9 @@
 <?php
-//   session_name('u5a02');
-session_start();
+if(session_status() == PHP_SESSION_NONE) {
+	session_name('idSesionU5A02-00-contador');
+	session_start();
+}
+
 if (isset($_REQUEST["reiniciarContador"])) {
 	unset($_SESSION["contador"]); // elige una
 	$_SESSION=array(); // elige una
@@ -39,7 +42,6 @@ else {
 <p><a href="<?php echo $_SERVER['PHP_SELF']?>">Recargar la página</a></p>
 <p><a href="<?php echo $_SERVER['PHP_SELF']."?reiniciarContador=true"?>">Reiniciar contador</a></p>
 <p><a href="<?php echo $_SERVER['PHP_SELF']."?cerrarSesion=true"?>">Cerrar sesión</a></p>
-
 </body></html>
 
 
