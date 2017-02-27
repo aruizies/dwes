@@ -58,12 +58,10 @@ public class SaludoCookies extends HttpServlet {
 
 		String errorUsuario = "";
 		String usuario = "";
-		boolean error = false;
 		if (request.getParameter("enviar") != null) {
 			// validar nombre
 			usuario = request.getParameter("usuario");
 			if (usuario == "") {
-				error = true;
 				errorUsuario = "Debes introducir un nombre";
 			} else {
 				Cookie nuevaCookieUsuario = new Cookie("usuario", usuario);
