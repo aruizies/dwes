@@ -108,5 +108,4 @@ public class ComprobarNumero extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }
