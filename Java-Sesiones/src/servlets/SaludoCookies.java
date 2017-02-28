@@ -2,6 +2,8 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -48,10 +50,20 @@ public class SaludoCookies extends HttpServlet {
 		response.setContentType("text/html;UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println("<html><head><meta charset='UTF-8'/>" + "<style> .error {color: red}</style>" + "</head><body>");
+/*
+		Map<String,Cookie> cookieMap = new HashMap<String,Cookie>();
+		Cookie[] cookies = request.getCookies();
+		for(Cookie c : cookies){
+		    cookieMap.put(c.getName(), c);
+		}
+		Cookie cookieUsuario = cookieMap.get("usuario");
+*/
 
-		if (request.getParameter("borrarCookie") != null) {
-			Cookie cookieUsuario = buscarCookie("usuario", request);
-			cookieUsuario.setMaxAge(0);
+		
+		if (request.getParameter("eliminarCookie") != null) {
+			Cookie cookieCaducada = new Cookie("usuario","");
+			cookieCaducada.setMaxAge(0);
+			response.addCookie(cookieCaducada);
 			// es necesario refrescar para que se lea la cookie
 			response.sendRedirect("/Java-Sesiones/SaludoCookies");
 		}
@@ -65,6 +77,7 @@ public class SaludoCookies extends HttpServlet {
 				errorUsuario = "Debes introducir un nombre";
 			} else {
 				Cookie nuevaCookieUsuario = new Cookie("usuario", usuario);
+				nuevaCookieUsuario.setPath("/Java-Sesiones");
 				response.addCookie(nuevaCookieUsuario);
 				// es necesario refrescar para que se lea la cookie
 				response.sendRedirect("/Java-Sesiones/SaludoCookies");
@@ -82,7 +95,6 @@ public class SaludoCookies extends HttpServlet {
 		}
 		out.println("<p><a href='/Java-Sesiones/SaludoCookies'>Enlace a esta misma página</a></p>");
 		out.println("<p><a href='/Java-Sesiones/SaludoCookies?eliminarCookie=true'>Eliminar cookies</a></p>");
-
 		out.println("</body></html>");
 	}
 
