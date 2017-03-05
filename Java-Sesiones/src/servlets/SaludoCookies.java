@@ -65,7 +65,7 @@ public class SaludoCookies extends HttpServlet {
 			cookieCaducada.setMaxAge(0);
 			response.addCookie(cookieCaducada);
 			// es necesario refrescar para que se lea la cookie
-			response.sendRedirect("/Java-Sesiones/SaludoCookies");
+			response.sendRedirect(request.getRequestURI());
 		}
 
 		String errorUsuario = "";
@@ -80,7 +80,7 @@ public class SaludoCookies extends HttpServlet {
 				nuevaCookieUsuario.setPath("/Java-Sesiones");
 				response.addCookie(nuevaCookieUsuario);
 				// es necesario refrescar para que se lea la cookie
-				response.sendRedirect("/Java-Sesiones/SaludoCookies");
+				response.sendRedirect(request.getRequestURI());
 			}
 		}
 
@@ -88,13 +88,13 @@ public class SaludoCookies extends HttpServlet {
 		if (cookieUsuario != null) {
 			out.println("<h2>Bienvenid@, " + cookieUsuario.getValue() + "</h2>");
 		} else {
-			out.println("<form action='/Java-Sesiones/SaludoCookies' method='post'>"
+			out.println("<form action='"+request.getRequestURI()+"' method='post'>"
 					+ "<label>Introduce tu nombre para dirigirnos a ti:</label>" + "<input type='text' name='usuario'/>"
 					+ "<span class='error'>" + errorUsuario + "</span><br/>"
 					+ "<input type='submit' name='enviar' value='Enviar'/></form>");
 		}
-		out.println("<p><a href='/Java-Sesiones/SaludoCookies'>Enlace a esta misma página</a></p>");
-		out.println("<p><a href='/Java-Sesiones/SaludoCookies?eliminarCookie=true'>Eliminar cookies</a></p>");
+		out.println("<p><a href='" + request.getRequestURI() + "'>Refrescar</a></p>");
+		out.println("<p><a href='" + request.getRequestURI() + "?eliminarCookie=true'>Eliminar cookies</a></p>");
 		out.println("</body></html>");
 	}
 
