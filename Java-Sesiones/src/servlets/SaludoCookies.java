@@ -48,8 +48,10 @@ public class SaludoCookies extends HttpServlet {
 			throws ServletException, IOException {
 		ServletContext contexto = getServletContext();
 		response.setContentType("text/html;UTF-8");
+		
 		PrintWriter out = response.getWriter();
 		out.println("<html><head><meta charset='UTF-8'/>" + "<style> .error {color: red}</style>" + "</head><body>");
+		
 /*
 		Map<String,Cookie> cookieMap = new HashMap<String,Cookie>();
 		Cookie[] cookies = request.getCookies();

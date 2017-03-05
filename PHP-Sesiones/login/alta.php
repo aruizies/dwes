@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$consultaActualizacion = $actualizacion."$usernameForm"."','"."$phash"."','"."$nombreForm"."','"."$adminForm"."','"."$descripcionForm"."')";
 			 echo $consultaActualizacion; // utiliza esta línea para depurar tu consulta
 			$resultado = $conexion->query($consultaActualizacion);
-				$mensajeError = $conexion->error;
+			$mensajeError = $conexion->error;
 			if (empty($mensajeError)) 
 				header ("Location: login.php"); 
 		}
