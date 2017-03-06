@@ -3,6 +3,11 @@ $servidor = "localhost";
 $usuario = "alumno";
 $clave = "alumno";
 
+session_start();
+if (isset($_SESSION['login']) && strcmp($_SESSION['login'], "1")==0) {
+	header ("Location:index.php");
+}
+
 $mensajeError="";
 
 if(isset($_POST["enviar"])) {
@@ -25,8 +30,7 @@ if(isset($_POST["enviar"])) {
 		// comprobar password
 //		if (strcmp($passwordForm, $fila['password'], ) !== 0) {
 		if (password_verify($passwordForm, $fila['password'])) {
-			// autenticación completada: iniciar sesión y redirigir a la página
-			session_start();
+			// autenticación completada
 			$_SESSION['login'] = "1";
 			$_SESSION['usuario'] = $usernameForm;
 			header("Location: index.php");

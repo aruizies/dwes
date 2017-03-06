@@ -50,7 +50,6 @@ public class SaludoCookies extends HttpServlet {
 		response.setContentType("text/html;UTF-8");
 		
 		PrintWriter out = response.getWriter();
-		out.println("<html><head><meta charset='UTF-8'/>" + "<style> .error {color: red}</style>" + "</head><body>");
 		
 /*
 		Map<String,Cookie> cookieMap = new HashMap<String,Cookie>();
@@ -85,6 +84,8 @@ public class SaludoCookies extends HttpServlet {
 				response.sendRedirect(request.getRequestURI());
 			}
 		}
+
+		out.println("<html><head><meta charset='UTF-8'/>" + "<style> .error {color: red}</style>" + "</head><body>");
 
 		Cookie cookieUsuario = buscarCookie("usuario", request);
 		if (cookieUsuario != null) {
